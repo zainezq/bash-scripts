@@ -33,6 +33,8 @@ To use the script:
 
 ## Org File Chooser for Emacs
 
+See **Important** at the bottom before proceeding.
+
 This script simplifies the process of opening Org files in Emacs by providing a menu where you can select which file to open. It can handle multiple files, and you can dynamically add new files to the selection. Additionally, it ensures persistent storage of the files added to the menu for future use (if second script is used).
 
 ### Features:
@@ -43,7 +45,7 @@ This script simplifies the process of opening Org files in Emacs by providing a 
 - **Error Handling**: The script checks if a file exists before attempting to open it.
 
 ### To use the script:
-*NOTE* there are two scripts, one is a simpler version that doesnt store added filepaths and is fixed to three only, whilst the second (emacs_orgfile_bash_chooser_2.sh) saves the filepaths to a txt file.
+
 1. Edit the script to specify the location of your file list. Use your text editor to edit those parts that have the #EDIT# sign next to it.
    
 2. Make the script executable by running:
@@ -64,5 +66,9 @@ This script simplifies the process of opening Org files in Emacs by providing a 
 
 When you add a new file in the second script, the new file will be appended to the `file_list.txt` and be available next time you run the script.
 
-*Note:* Ensure that you have Emacs installed and available via the `emacs` command: 
-	- [Emacs guide](https://www.gnu.org/software/emacs/)
+*Important*
+- Ensure that you have Emacs installed and available via the `emacs` command. See below for a link to the official emacs webpage.
+  
+- There are two scripts, one is a simpler version that doesnt store added filepaths and is fixed to three only, whilst the second (emacs_orgfile_bash_chooser_2.sh) saves the filepaths to a txt file.
+
+  - [Emacs guide](https://www.gnu.org/software/emacs/)
