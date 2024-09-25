@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File paths
+# File paths #EDIT#
 files=(
     "/home/..."
     "/home/..."

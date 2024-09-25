@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Path to the file list
-FILE_LIST="$HOME/path/to/file_list.txt"
+FILE_LIST="$HOME/path/to/file_list.txt" #EDIT#
 
-# Check if file_list.txt exists, if not, create it with default files
+# Check if file_list.txt exists, if not, create it with default files. 
 if [ ! -f "$FILE_LIST" ]; then
-    echo "$HOME/path/to/default1.org" > "$FILE_LIST"
-    echo "$HOME/path/to/default2.org" >> "$FILE_LIST"
-    echo "$HOME/path/to/default3.org" >> "$FILE_LIST"
+    echo "$HOME/path/to/default1.org" > "$FILE_LIST" #EDIT#
+    echo "$HOME/path/to/default2.org" >> "$FILE_LIST" #EDIT#
+    echo "$HOME/path/to/default3.org" >> "$FILE_LIST" #EDIT#
 fi
 
 # Read file paths from the file list into an array
