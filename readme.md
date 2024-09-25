@@ -62,19 +62,7 @@ This script simplifies the process of opening Org files in Emacs by providing a 
 
 4. Follow the menu prompts to open files in Emacs, add new files, or exit.
 
-### Example File Structure:
+When you add a new file in the second script, the new file will be appended to the `file_list.txt` and be available next time you run the script.
 
-```
-$HOME/path/to/file_list.txt
-
-# Example content of file_list.txt
-/home/user/org-files/master.org
-/home/user/org-files/career.org
-/home/user/org-files/deen.org
-```
-
-### Adding New Files:
-
-During script execution, you can add new files to the list by choosing the appropriate menu option. The new file will be appended to the `file_list.txt` and be available next time you run the script.
-
-*Note:* Ensure that you have Emacs installed and available via the `emacs` command. 
+*Note:* Ensure that you have Emacs installed and available via the `emacs` command: 
+	- [Emacs guide](https://www.gnu.org/software/emacs/)
