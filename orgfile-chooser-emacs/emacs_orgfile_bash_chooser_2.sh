@@ -1,4 +1,6 @@
 #!/bin/bash
+# Bash Script To Open Emacs in Certain files through an intuitive menu.
+# AUTHOR: Zaine Qayyum
 
 # Path to the file list
 FILE_LIST="$HOME/path/to/file_list.txt" #EDIT#
