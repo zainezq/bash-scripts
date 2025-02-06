@@ -72,3 +72,11 @@ When you add a new file in the second script, the new file will be appended to t
 - There are two scripts, one is a simpler version that doesnt store added filepaths and is fixed to three only, whilst the second (emacs_orgfile_bash_chooser_2.sh) saves the filepaths to a txt file.
 
   - [Emacs guide](https://www.gnu.org/software/emacs/)
+
+## Git pull on multiple projects:
+
+A really simple script to automate pulling from git; useful if working with multiple projects or frontend/backend applications.
+
+   ```bash
+   ./git_pull.sh
+   ```
