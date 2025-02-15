@@ -80,3 +80,15 @@ A really simple script to automate pulling from git; useful if working with mult
    ```bash
    ./git_pull.sh
    ```
+
+## Automatic insertion to org file from txt files:
+
+As the name suggests, this file will look for changes in a desired directory. It will scan `txt` files and notice if anything has been added to them, if that is the case, it will attempt to append/edit the `MASTER_TL` file that you have chosen; essentially allowing you to have a full list of all the contents stored in multiple files.
+
+### Use case
+
+The reason this was made was so that I would have an easy way of getting my TO-DO's of the day. I have set up a crontab as follows: 
+```
+0 0 * * * /bin/bash -c 'touch /home/zaine/master-folder/org_files/todo/dailyfile-$(date +\%Y\>
+```
+which creates a daily file for me to add my todo's (in org format). Then it will be synced to my server which will then allow me to view the TODO's for that day!
