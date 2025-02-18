@@ -110,5 +110,4 @@ An example of what a weekly org would look like:
 ** DONE Update the bash script for auto org.
 ** DONE AFP Lecture
 
-
 ```
