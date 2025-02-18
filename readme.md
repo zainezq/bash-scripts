@@ -83,7 +83,7 @@ A really simple script to automate pulling from git; useful if working with mult
 
 ## Automatic insertion to org file from txt files:
 
-As the name suggests, this file will look for changes in a desired directory. It will scan `txt` files and notice if anything has been added to them, if that is the case, it will attempt to append/edit the `MASTER_TL` file that you have chosen; essentially allowing you to have a full list of all the contents stored in multiple files.
+As the name suggests, this file will look for changes in a desired directory. It will scan files (I personally use `org` files, but `txt` will also work) and notice if anything has been added to them, if that is the case, it will attempt to append/edit the `MASTER_TL` file that you have chosen; essentially allowing you to have a full list of all the contents stored in multiple files.
 
 ### Requirement
 
@@ -95,8 +95,20 @@ sudo apt install inotify-tools
 
 ### Use case
 
-The reason this was made was so that I would have an easy way of getting my TO-DO's of the day. I have set up a crontab as follows: 
+The way I wanted to set the workflow is to have a weekly org file that will be created every mondays (I could have a `crontab` to do this but that would require the machine to be on at the time it needs to be created - not feasibile unless you have a 24/7 server running), and I would append the `YYYY-weekly-DD` file using the second level org header `**` as the first is used for checking purposes by the script. Now once I have added the entries I need to add, It will append/edit to the master-tl.org, which contains every `TODO` entry I have ever made - this is useful in case I want to look back and see the thing I have been working on. 
+
+An example of what a weekly org would look like: 
+
+```org
+
+** DONE Agda revision (1h)
+** DONE Agda exam practice
+** DONE Hospital hearing aids
+** TODO 1h on FYP
+** TODO Read about ISE coursework.
+
+** DONE Update the bash script for auto org.
+** DONE AFP Lecture
+
+
 ```
-0 0 * * * /bin/bash -c 'touch /home/zaine/master-folder/org_files/todo/dailyfile-$(date +\%Y\>
-```
-which creates a daily file for me to add my todo's (in org format). Then it will be synced to my server which will then allow me to view the TODO's for that day!
