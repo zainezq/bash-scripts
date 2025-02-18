@@ -1,12 +1,20 @@
- #!/bin/bash
+#!/bin/bash
 
-TL_DIR="/home/zaine/master-folder/org_files/todo" # Adjust this as needed
-MASTER_TL="/home/zaine/master-folder/org_files/todo/master-tl.org" #Adjust this as needed
+TL_DIR="/home/zaine/master-folder/org_files/todo" #adjust
+MASTER_TL="/home/zaine/master-folder/org_files/todo/master-tl.org" #adjust
 
-# You will need to install 'inotifywait'
+# Determine the weekly file
+WEEKLY_FILE="$TL_DIR/$(date +%Y)-week-$(date +%V).org"
+
+# Ensure weekly file exists
+if [[ ! -f "$WEEKLY_FILE" ]]; then
+    touch "$WEEKLY_FILE"
+    echo "Created new weekly todo file: $WEEKLY_FILE"
+fi
+
+# inotify-tools will need to be installed
 inotifywait -m "$TL_DIR" -e create -e moved_to -e modify --format '%w%f' |
 while read filepath; do
-    # Ignore changes to the master file itself and system-generated files
     if [[ "$filepath" == "$MASTER_TL" || "$filepath" =~ ^.*\/\.goutputstream-.*$ || "$filepath" =~ ^.*\/\..* ]]; then
         continue
     fi
@@ -14,10 +22,9 @@ while read filepath; do
     filename=$(basename "$filepath")
 
     echo "Processing $filepath..."
-    
+
     # Ensure it's a valid, non-empty file
     if [[ -f "$filepath" && -s "$filepath" ]]; then
-        # Temporarily store new content
         TMP_FILE=$(mktemp)
         {
             echo "* START $filename *"
@@ -25,8 +32,8 @@ while read filepath; do
             echo "* END $filename *"
         } > "$TMP_FILE"
 
-        # Remove old content related to this file safely
-        sed -i "/* START $filename */,/* END $filename */d" "$MASTER_TL"
+        # Remove old content for this file in `master-tl.org`
+        sed -i "/\* START $filename \*/,/\* END $filename \*/d" "$MASTER_TL"
 
         # Append new content
         cat "$TMP_FILE" >> "$MASTER_TL"
